@@ -52,7 +52,7 @@ function CameraController() {
 }
 
 function ShowroomModel() {
-  const { scene } = useGLTF('/showroom.glb')
+  const { scene } = useGLTF('../showroom.glb')
   const showroom = useRef()
   const [isDragging, setIsDragging] = useState(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
