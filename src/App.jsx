@@ -52,7 +52,7 @@ function CameraController() {
 }
 
 function ShowroomModel() {
-  const { scene } = useGLTF('./src/showroom.glb')
+  const { scene } = useGLTF('models/showroom.glb')
   const showroom = useRef()
   const [isDragging, setIsDragging] = useState(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
@@ -143,7 +143,7 @@ function useFrustumCulling(position, scale = 1) {
 }
 
 function MachineModel(props) {
-  const { scene, animations } = useGLTF('./src/washing_machine.glb')
+  const { scene, animations } = useGLTF('models/washing_machine.glb')
   const modelRef = useRef()
   const [isDragging, setIsDragging] = useState(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
