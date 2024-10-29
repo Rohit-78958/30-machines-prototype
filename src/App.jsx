@@ -210,7 +210,7 @@ function InfoPoint({ position, info, imageUrl }) {
       </mesh>
       {clicked && (
         <Html distanceFactor={10}>
-          <div style={{ background: 'white', padding: '10px', borderRadius: '5px', fontSize: '12px', width: '130px' }}>
+          <div style={{ background: 'white', padding: '10px', borderRadius: '5px', fontSize: '12px', width: '125px' }}>
           <img src={imageUrl} alt={info} style={{ width: '100%', height: 'auto', borderRadius: '5px' }} />
           </div>
         </Html>
