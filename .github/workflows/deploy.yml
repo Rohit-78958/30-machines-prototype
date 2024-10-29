@@ -4,7 +4,7 @@ name: Deploy to GitHub Pages
 on:
     push:
         branches:
-            - githubPages
+            - master
     pull_request:
         types: [synchronize]
     workflow_dispatch:
