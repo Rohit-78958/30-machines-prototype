@@ -54,71 +54,9 @@ function CameraController() {
 function ShowroomModel() {
   const { scene } = useGLTF('models/showroom.glb')
   const showroom = useRef()
-  const [isDragging, setIsDragging] = useState(false)
-  const previousMousePositionRef = useRef({ x: 0, y: 0 })
-
-  // Using useRef instead of state for mouse position to avoid stale closures
-  const onPointerDown = (event) => {
-    event.stopPropagation()
-    setIsDragging(true)
-    previousMousePositionRef.current = {
-      x: event.clientX,
-      y: event.clientY
-    }
-    console.log('pointer down')
-  }
-
-  const onPointerMove = (event) => {
-    if (!isDragging) return
-
-    const deltaX = event.clientX - previousMousePositionRef.current.x
-    
-    if (showroom.current) {
-      showroom.current.rotation.y += deltaX * (0.01/2)
-    }
-
-    // Update the previous position after calculating delta
-    previousMousePositionRef.current = {
-      x: event.clientX,
-      y: event.clientY
-    }
-    console.log('pointer move')
-  }
-
-  const onPointerUp = () => {
-    setIsDragging(false)
-    console.log('pointer up')
-  }
-
-
-  // Add pointer capture to ensure we don't lose the drag events
-  useEffect(() => {
-    const handlePointerMove = (event) => {
-      onPointerMove(event)
-    }
-
-    const handlePointerUp = (event) => {
-      onPointerUp()
-      window.removeEventListener('pointermove', handlePointerMove)
-      window.removeEventListener('pointerup', handlePointerUp)
-    }
-
-    if (isDragging) {
-      window.addEventListener('pointermove', handlePointerMove)
-      window.addEventListener('pointerup', handlePointerUp)
-    }
-
-    return () => {
-      window.removeEventListener('pointermove', handlePointerMove)
-      window.removeEventListener('pointerup', handlePointerUp)
-    }
-  }, [isDragging])
 
   return (
     <group ref={showroom} 
-    // onPointerDown={onPointerDown} 
-    // onPointerUp={onPointerUp} 
-    // onPointerMove={onPointerMove}
     >
       <primitive object={scene} scale={0.2} castShadow />
       {/* <OrbitControls enablePan={false} enableZoom={false} target={[0, 1, 0]} maxPolarAngle={Math.PI / 2} minPolarAngle={-Math.PI / 2} /> */}
@@ -232,7 +170,7 @@ function MachineModel(props) {
       {...props}
     >
       <primitive ref={group} object={scene.clone()} scale={2} rotation={[0, Math.PI , 0]} castShadow />
-      <InfoPoint position={[1.5, -1.2, -0.2]} info="This is the front loader of the machine" imageUrl="/machine.jpg" />
+      <InfoPoint position={[1.5, -1.2, -0.2]} info="This is the front loader of the machine" imageUrl="images/machine.jpg" />
       <InfoPoint position={[-1, 0.4, 0]} info="This is the back of the machine" />
       <InfoPoint position={[0, 1.4, 0]} info="This is the top of the machine" />
       <Html position={[0, 3, 0.5]}  distanceFactor={15}>
