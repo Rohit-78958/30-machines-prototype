@@ -329,7 +329,7 @@ function InfoPoint({ position, info, imageUrl }) {
   )
 }
 
-// 9. Add Performance Monitoring and Adaptation
+// Performance Monitoring and Adaptation
 function PerformanceOptimizer() {
   const { gl } = useThree()
   
