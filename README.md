@@ -1,8 +1,8 @@
-# React + Vite
+# 30-machines
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Its a project showcasing the rendering of 30 washing machine models(.glb files) inside a showroom model with active hotspots showing different info's about the machine and a play button to play the animation of the file.
+[Note : We have a optimized version of this project which can be explored here: ]
 
-Currently, two official plugins are available:
+React-Three-fiber is used as a framework for the development of this work with support from addition libraries like React-three-Drie, Vite as bundler, etc.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
